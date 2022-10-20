@@ -1,0 +1,6 @@
+accounting, mathematics
+accounting, spreadsheet
+development, programming
+development, linux
+human resources, spreadsheet
+human resources, organization

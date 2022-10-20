@@ -1,0 +1,14 @@
+Unternährer	Tanja	fitness	gymnastics	handball	volleyball	tennis	surfing
+Juchler	Fritz	soccer	gymnastics	tennis
+Müller	Patricia	fitness	volleyball
+Fischer	Hans	fitness	surfing
+Aebi	Jonas	soccer	handball	tennis
+Amrein	Sandra	gymnastics	volleyball	surfing
+Elia	Aron	soccer	tennis
+Hediger	Nicole	handball	surfing
+Geisseler	Lukas	fitness	handball	tennis
+Hertwig	Pasal	soccer	surfing
+Jordi	Cécile	fitness	tennis
+Wertz	Andrea	gymnastics	volleyball
+Sprenger	Robin	soccer	tennis
+Wyss	Marco	fitness	handball	volleyball	tennis	surfing

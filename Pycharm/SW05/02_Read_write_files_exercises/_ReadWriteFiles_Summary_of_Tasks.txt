@@ -1,0 +1,71 @@
+Read and write files
+(source: Einführung in Python 3, Bernd Klein, Hanser Verlag)
+ 
+***********
+Exercise 01
+***********
+
+Create a file with the name 'names.txt' in which a first name and a surname 
+alternate for example like this:
+
+Fred
+Miller
+Eve
+Turner
+Steve
+Baker
+Elsa
+Brunner
+Hans
+Ruckli
+Silvia
+Muster
+
+The content of this 'names.txt'-file is to be transferred to another file 'names2.txt'.
+In the second file 'names2.txt' on every line there should be a first name and a surname
+like this output:
+
+Fred Miller
+Eve Turner
+Steve Baker
+Elsa Brunner
+Hans Ruckli
+Silvia Muster
+
+
+***********
+Exercise 02
+***********
+
+Write a program that combines three lines from the file 'musicians.txt' into one each 
+and outputs them as standard output using print ().
+
+That means:  An output line should contain the first name, the last name and the artist name ("Künstername") or band of the artist. 
+The band or artist name should be outputed in brackets and in captial letters. 
+Example "Marshall Bruce Mathers III (EMINEM)"
+
+Brian
+Molko
+placebo
+Jim
+Morrison
+The Doors
+Ray
+Davies
+The Kinks
+Marshall Bruce
+Mathers III
+Eminem
+Andre Romelle
+Young
+Dr. Dre
+Beth
+Gibbons
+Portishead
+
+***********
+Exercise 03
+***********
+
+Change the solution of Exercise 02 so that the program writes the output to the file 'musicians2.txt'. 
+

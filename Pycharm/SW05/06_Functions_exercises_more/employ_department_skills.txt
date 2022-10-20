@@ -1,0 +1,8 @@
+Urs,accounting,mathematics
+Urs,accounting,spreadsheet
+Mike,development,programming
+Mike,development,linux
+Lila,development,programming
+Lila,development,linux
+Sandy,human resources,spreadsheet
+Sandy,human resources,organization
