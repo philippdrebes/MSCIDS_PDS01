@@ -6,7 +6,7 @@
 
 # We have 2 files:
 # file A: employ_departement_since.txt
-# file B: departement_chief.txt
+# file B: department_chief.txt
 
 # you have to merge (join) this two files:
 # desired result:
@@ -22,19 +22,25 @@
 
 # you can start in this way ....
 
-def elementAppendAdder(liste, element):
-    liste.append( element )
-    return liste
 
-e_d_s_list = []
-with open( "employ_department_since.txt","r" ) as emp_dep_sin_in:
-    for line in emp_dep_sin_in:
-        my_list = line.rstrip().split( "," )
-        e_d_s_list = elementAppendAdder(e_d_s_list, my_list)    # line.rstrip())
-    print("e_d_s_list: " ,e_d_s_list)
+employees = {}
+departments = {}
+with open('employ_department_since.txt', 'r') as emp_in:
+    for line in emp_in:
+        data = line.rstrip().split(',')
+        employees[data[0]] = {'department': data[1], 'since': data[2]}
 
-    for i in e_d_s_list:
-        print(i[0], i[1], i[2])
+with open('department_chief.txt', 'r') as dep_chief_in:
+    for line in dep_chief_in:
+        data = line.rstrip().split(', ')
+        departments[data[0]] = data[1]
 
+print('employees: ', employees)
+print('departments: ', departments)
 
-# rest is your work!
+with open('employ_department_since_chief.txt', 'w') as outfile:
+    for e in employees:
+        dep = employees[e]['department']
+        line = ','.join([e, dep, employees[e]['since'], departments[dep]]) + '\n'
+        print(line, end='')
+        outfile.write(line)

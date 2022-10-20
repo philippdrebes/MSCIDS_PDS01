@@ -6,7 +6,7 @@
 
 # We have 2 files:
 # file A: employ_departement_since.txt
-# file B: departement_chief.txt
+# file B: department_chief.txt
 
 # you have to merge (join) this two files:
 # desired result:
@@ -36,7 +36,7 @@ def readFile_inList(filenname):
 
 
 e_d_s_list = readFile_inList("employ_department_since.txt")
-d_c_list = readFile_inList("departement_chief.txt")
+d_c_list = readFile_inList("department_chief.txt")
 
 
 print("*"* 60)

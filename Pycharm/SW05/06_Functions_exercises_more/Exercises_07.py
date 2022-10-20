@@ -5,7 +5,7 @@
 ###########################
 
 # We have 2 files:
-# file A: employ_departement.txt
+# file A: employ_department.txt
 # file B: employ_since.txt
 
 # you have to merge (join) this two files:
@@ -23,22 +23,21 @@
 # In a second step you try to move the same lines of code into a function
 # and then call this function twice with different parameters
 
-
-
-# you can start in this way ....
-
-def elementAppendAdder(liste, element):
-    liste.append( element )
-    return liste
-
-e_d_list = []
-with open( "employ_departement.txt","r" ) as emp_dep_in:
+employees = {}
+with open('employ_department.txt', 'r') as emp_dep_in:
     for line in emp_dep_in:
-        my_list = line.rstrip().split( ", " )
-        e_d_list = elementAppendAdder(e_d_list, my_list)    # line.rstrip())
-    print("e_d_list: " ,e_d_list)
+        data = line.rstrip().split(', ')
+        employees[data[0]] = {'department': data[1]}
 
-    for i in e_d_list:
-        print(i[0], i[1])
+with open('employ_since.txt', 'r') as emp_sin_in:
+    for line in emp_sin_in:
+        data = line.rstrip().split(', ')
+        employees[data[0]]['since'] = data[1]
 
-# rest is your work!
+print('employees: ', employees)
+
+with open('employ_department_since.txt', 'w') as output:
+    for e in employees:
+        line = ','.join([e, employees[e]['department'], employees[e]['since']]) + '\n'
+        print(line, end='')
+        output.write(line)

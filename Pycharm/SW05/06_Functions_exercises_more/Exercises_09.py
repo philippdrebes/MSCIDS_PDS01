@@ -5,8 +5,8 @@
 ###########################
 
 # we have 2 files:
-# file A: employ_departement.txt
-# file B: departement_skills.txt
+# file A: employ_department.txt
+# file B: department_skills.txt
 
 # you have to merge (join) this two files:
 # desired result:
@@ -26,19 +26,29 @@
 
 # you can start in this way ....
 
-def elementAppendAdder(liste, element):
-    liste.append( element )
-    return liste
+employees = {}
+departments = {}
+with open('employ_department.txt', 'r') as emp_in:
+    for line in emp_in:
+        data = line.rstrip().split(', ')
+        employees[data[0]] = data[1]
 
-e_d_list = []
-with open( "employ_departement.txt","r" ) as emp_dep_in:
-    for line in emp_dep_in:
-        my_list = line.rstrip().split( ", " )
-        e_d_list = elementAppendAdder(e_d_list, my_list)    # line.rstrip())
-    print("e_d_list: " ,e_d_list)
+with open('department_skills.txt', 'r') as dep_in:
+    for line in dep_in:
+        data = line.rstrip().split(', ')
 
-    for i in e_d_list:
-        print(i[0], i[1])
+        if data[0] in departments:
+            departments[data[0]].append(data[1])
+        else:
+            departments[data[0]] = [data[1]]
 
+print('employees: ', employees)
+print('departments: ', departments)
 
-# rest is your work!
+with open('employ_department_skills.txt', 'w') as outfile:
+    for e in employees:
+        dep = employees[e]
+        for skill in departments[dep]:
+            line = ','.join([e, dep, skill]) + '\n'
+            print(line, end='')
+            outfile.write(line)

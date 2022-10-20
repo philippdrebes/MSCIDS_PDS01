@@ -5,8 +5,8 @@
 ###########################
 
 # we have 2 files:
-# file A: employ_departement.txt
-# file B: departement_skills.txt
+# file A: employ_department.txt
+# file B: department_skills.txt
 
 # you have to merge (join) this two files:
 # desired result:
@@ -39,8 +39,8 @@ def readFile_inList(filenname):
             retlist = elementAppendAdder( retlist, my_list )
         return retlist
 
-e_d_list = readFile_inList("employ_departement.txt")
-d_s_list = readFile_inList("departement_skills.txt")
+e_d_list = readFile_inList("employ_department.txt")
+d_s_list = readFile_inList("department_skills.txt")
 
 print("*"* 60)
 e_d_sk_List = []          # join n:m

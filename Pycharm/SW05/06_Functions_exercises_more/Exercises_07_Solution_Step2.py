@@ -5,7 +5,7 @@
 ###########################
 
 # We have 2 files:
-# file A: employ_departement.txt
+# file A: employ_department.txt
 # file B: employ_since.txt
 
 # you have to merge (join) this two files:
@@ -37,10 +37,10 @@ def readFile_inList(filenname):
             e_d_list = elementAppendAdder( e_d_list, my_list )  # line.rstrip())
         return e_d_list
 
-e_d_list = readFile_inList("employ_departement.txt")
+e_d_list = readFile_inList("employ_department.txt")
 
 # e_d_list = []
-# with open( "employ_departement.txt","r" ) as emp_dep_in:
+# with open( "employ_department.txt","r" ) as emp_dep_in:
 #     for line in emp_dep_in:
 #         my_list = line.rstrip().split( ", " )
 #         e_d_list = elementAppendAdder(e_d_list, my_list)    # line.rstrip())
