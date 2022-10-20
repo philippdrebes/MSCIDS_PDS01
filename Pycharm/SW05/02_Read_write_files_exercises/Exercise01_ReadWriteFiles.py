@@ -31,7 +31,13 @@
 # Hans Ruckli
 # Silvia Muster
 
-fobj_in = open("names.txt")
-fobj_out = open("names2.txt", "w")
+with open("names.txt") as file_in:
+    with open("names2.txt", "w") as file_out:
+        while True:
+            line1 = file_in.readline()
+            line2 = file_in.readline()
 
+            if not line2:
+                break  # EOF
 
+            file_out.writelines("{0} {1}\n".format(line1.rstrip(), line2.rstrip()))

@@ -7,7 +7,7 @@
 # Write a program that combines three lines from the file 'musicians.txt' into one each
 # and outputs them as standard output using print ().
 
-# That means:  An output line should contain the first name, the last name and the artist name ("Künstername") or band of the artist.
+# That means:  An output line should contain the first name, the last name and the artist name ("KÃ¼nstername") or band of the artist.
 # The band or artist name should be outputed in brackets and in captial letters.
 # Example "Marshall Bruce Mathers III (EMINEM)"
 
@@ -31,6 +31,13 @@
 # Portishead
 
 
+with open("musicians.txt") as file:
+    while True:
+        line1 = file.readline()
+        line2 = file.readline()
+        line3 = file.readline()
 
-fh = open("musicians.txt")
- 
+        if not line3:
+            break  # EOF
+
+        print("{0} {1} ({2})".format(line1.rstrip(), line2.rstrip(), line3.rstrip().upper()))
