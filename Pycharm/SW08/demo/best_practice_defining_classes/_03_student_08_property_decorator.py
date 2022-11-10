@@ -19,13 +19,11 @@ class Student:
         self.status_verified = None
         self.guardian = None
 
-
     def get_first_name(self):
         return self._first_name
 
-
     def set_first_name(self, fname):
-        if fname[0]=='S'or fname[0]=='s':
+        if fname[0] == 'S' or fname[0] == 's':
             self._first_name = "S-Name-not-allowed!"
         else:
             self._first_name = fname
@@ -36,18 +34,18 @@ class Student:
     def set_last_name(self, fname):
         self._last_name = fname
 
-
-# NEW with property-decorator ################################
+    # NEW with property-decorator ################################
     @property
-    def name(self):                                       # old: def get_name(self):
+    def name(self):  # old: def get_name(self):
         print("   Getter for the name")
         return f"{self.first_name} {self.last_name}"
 
     @name.setter
-    def name(self, name):                             # old: def set_name(self, name):
+    def name(self, name):  # old: def set_name(self, name):
         print("   Setter for the name")
         self.first_name, self.last_name = name.split()
-# NEW end ################################
+
+    # NEW end ################################
     def verify_registration_status(self):
         status = self.get_status()
         self.status_verified = (status == "registered")
@@ -56,7 +54,7 @@ class Student:
         return self.guardian
 
     def set_guardian_name(self, guardian_name):
-        self.guardian = guardian_name       # e.g. "Goodman"
+        self.guardian = guardian_name  # e.g. "Goodman"
 
     def get_status(self):
         # get the registration status from a database (simulation!!!!!)
@@ -72,7 +70,6 @@ class Student:
             return "not registered"
         else:
             return "registered"
-
 
     # part of the class 'student'=> we define 2 new property's:
     first_name = property(fget=get_first_name, fset=set_first_name)
@@ -90,21 +87,19 @@ def my_main():
     # old:
     # print("Student Name: ", stud01.get_first_name(), stud01.get_last_name())
 
-# old: output 'first_name' and 'last_name' in ONE method => get_name()
+    # old: output 'first_name' and 'last_name' in ONE method => get_name()
     # print( "Student Name: ", stud01.get_name() )
     # stud01.set_name("Frank Fitzlaff")
     # print( "Student Name: ", stud01.get_name() )
 
-# NEW: with the property-decorator you can access the propert-decoator-variable 'name' direct!!!
+    # NEW: with the property-decorator you can access the propert-decoator-variable 'name' direct!!!
     # it's shorter an pythonic-way ;-) !!!
-    print( "Student Name: ", stud01.name )
+    print("Student Name: ", stud01.name)
     stud01.name = "Frank Fitzlaff"
-    print( "Student Name: ", stud01.name )
-
+    print("Student Name: ", stud01.name)
 
     print(stud01.__dict__)
     # print(Student.__dict__)
-
 
 
 if __name__ == "__main__":

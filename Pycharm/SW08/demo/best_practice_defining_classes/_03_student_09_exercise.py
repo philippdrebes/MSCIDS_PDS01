@@ -1,4 +1,4 @@
-#_03_student_09_exercise.py
+# _03_student_09_exercise.py
 # Source: https://betterprogramming.pub/advanced-python-9-best-practices-to-apply-when-you-define-classes-871a27af658b
 # or
 # 9_BestPractices_Python.pdf
@@ -20,28 +20,29 @@
 
 class Student:
     def __init__(self, first_name, last_name):
-        self.set_first_name(first_name)
-        self._last_name = last_name
+        self.first_name = first_name
+        self.last_name = last_name
         self.status_verified = None
         self.guardian = None
 
-
-    def get_first_name(self):
+    @property
+    def first_name(self):
         return self._first_name
 
-
-    def set_first_name(self, fname):
-        if fname[0]=='S'or fname[0]=='s':
+    @first_name.setter
+    def first_name(self, fname):
+        if fname[0] == 'S' or fname[0] == 's':
             self._first_name = "S-Name-not-allowed!"
         else:
             self._first_name = fname
 
-    def get_last_name(self):
+    @property
+    def last_name(self):
         return self._last_name
 
-    def set_last_name(self, fname):
+    @last_name.setter
+    def last_name(self, fname):
         self._last_name = fname
-
 
     @property
     def name(self):
@@ -61,7 +62,7 @@ class Student:
         return self.guardian
 
     def set_guardian_name(self, guardian_name):
-        self.guardian = guardian_name       # e.g. "Goodman"
+        self.guardian = guardian_name  # e.g. "Goodman"
 
     def get_status(self):
         # get the registration status from a database (simulation!!!!!)
@@ -77,11 +78,6 @@ class Student:
             return "not registered"
         else:
             return "registered"
-
-
-    # part of the class 'student'=> we define 2 new property's:
-    first_name = property(fget=get_first_name, fset=set_first_name)
-    last_name = property(fget=get_last_name, fset=set_last_name)
 
 
 def my_main():
@@ -109,9 +105,10 @@ def my_main():
     stud02 = Student("Tony", "Röösli")
     print("Student Name: ", stud02.name)
 
-    stud02.first_name="Stefan"
+    stud02.first_name = "Stefan"
     print("Student Name: ", stud02.name)
     print(stud02.__dict__)
+
 
 if __name__ == "__main__":
     my_main()
