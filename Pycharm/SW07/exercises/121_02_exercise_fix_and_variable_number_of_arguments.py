@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 # 121_02_exercise_fix_and_variable_number_of_arguments.py
 # exercise
 # Variable Length of Parameters (c)
@@ -38,25 +36,30 @@
 
 # in this function we have: two fix parameter: surname, firstname
 #                           in *sports are 0,1,n sports
-def sports_per_member_in_list():
-    pass
-# your work
+def sports_per_member_in_list(surname, firstname, *sports):
+    print(f'{surname} {firstname} {sports[0]}')
 
 
 # in this function we have: two fix parameter: surname, firstname
 #                           in *sports are 0,1,n sports
-def last_sport_per_member():
-    pass
+def last_sport_per_member(surname, firstname, *sports):
+    print(f'{surname} {firstname} {sports[0][-1]}')
+
+
 # your work
 
 
-print("\nExercise A: ","*"* 60)
+print("\nExercise A: ", "*" * 60)
+with open('member_sports_list.txt', 'r') as f:
+    for l in f:
+        line = l.split()
+        sports_per_member_in_list(line[0], line[1], line[2:])
 
-# your work
-
-print("\nExercise B: ","*"* 60)
-
-# your work
+print("\nExercise B: ", "*" * 60)
+with open('member_sports_list.txt', 'r') as f:
+    for l in f:
+        line = l.split()
+        last_sport_per_member(line[0], line[1], line[2:])
 
 #########
 # Output:

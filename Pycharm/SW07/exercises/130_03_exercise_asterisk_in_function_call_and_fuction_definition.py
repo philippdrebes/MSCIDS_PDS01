@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 # 130_03_exercise_asterisk_in_function_call_and_fuction_definition.py
 # Exercises:
 # * in function call an d* in function definition (d)
@@ -16,47 +14,48 @@
 
 
 # Exercise A: to do!
-def tuple2str( ):
+def tuple2str(*t):
+    return str(t)[1:-1]
 
-    return
 
 # Exercise B: to do!
-def tuple2list(  ):
-
-    return
+def tuple2list(*t):
+    # return list(t)
+    res = []
+    for i in t:
+        res.append(i)
+    return res
 
 
 # Exercise A: Test of function def tuple2str(....):
 #             Test with 3 different tuples!
 print("############ Test with tuple2str(...) ############")
-p0 = (47,11,12,16)                    # tuple of int's
-# res0 = tuple2str(....)              # replace '....'
-# print("res0: ", res0)
+p0 = (47, 11, 12, 16)  # tuple of int's
+res0 = tuple2str(*p0)  # replace '....'
+print("res0: ", res0)
 
-p1 = (47,11,"hallo",[3,4,'gut'])      # tuple of different datatyps
-# res1 = tuple2str(....)              # replace '....'
-# print("res1: ",res1)
+p1 = (47, 11, "hallo", [3, 4, 'gut'])  # tuple of different datatyps
+res1 = tuple2str(*p1)  # replace '....'
+print("res1: ", res1)
 
-p2 = ()                               # empty tuple
-# res2 = tuple2str(....)              # replace '....'
-# print("res2: ",res2)
-
+p2 = ()  # empty tuple
+res2 = tuple2str(*p2)  # replace '....'
+print("res2: ", res2)
 
 # Exercise B: Test of function def tuple2list(....):
 #             Test with 3 different tuples!
 print("############ Test with tuple2list(...) ############ ")
-p3 = (47,11,12,16)                     # tuple of int's
-# res0 = tuple2list(....)              # replace '....'
-# print("res0: ", res0)
+p3 = (47, 11, 12, 16)  # tuple of int's
+res0 = tuple2list(*p3)  # replace '....'
+print("res0: ", res0)
 
+p4 = (47, 11, "hallo", [3, 4, 'gut'])  # tuple of different datatyps
+res1 = tuple2list(*p4)              # replace '....'
+print("res1: ",res1)
 
-p4 = (47,11,"hallo",[3,4,'gut'])       # tuple of different datatyps
-# res1 = tuple2list(....)              # replace '....'
-# print("res1: ",res1)
-
-p5 = ()                                # empty tuple
-# res2 = tuple2list(....)              # replace '....'
-# print("res2: ",res2)
+p5 = ()  # empty tuple
+res2 = tuple2list(*p5)              # replace '....'
+print("res2: ",res2)
 
 
 #########
