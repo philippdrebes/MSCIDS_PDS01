@@ -92,11 +92,12 @@ class DVD(Article):
         '''
 
         # Aufruf des Basisklassenkonstruktors
-        # ___***___
+        super().__init__(article_number, price)
 
         # Zusätzliche Daten werden in den internen Variablen abgelegt.
-        # ___***___
-        pass
+        self.__name = name
+        self.__duration = duration
+        self.__country_code = country_code
 
     @property
     def price(self):
@@ -105,7 +106,7 @@ class DVD(Article):
         geltende Mehrwertsteuer.
         '''
 
-        return 0  # ___***___
+        return self.price_net * (1 + type(self).vat)
 
     @price.setter
     def price(self, price):
@@ -113,7 +114,7 @@ class DVD(Article):
         Setze den Nettopreis in der Superklasse
         '''
 
-        self.price_net = 0  # ___***___
+        self.price_net = price
 
     def __str__(self):
         '''
@@ -121,7 +122,7 @@ class DVD(Article):
         zurückliefert
         '''
 
-        return "DVD - " + ""  # ___***___
+        return f"DVD - {self.__name} {self.__duration}"
 
 
 class ShoppingCart:
@@ -157,8 +158,8 @@ class ShoppingCart:
         '''
 
         # Ausrichten der Tabelle
-        FORMAT_TEXT_WIDTH = 50      # Breite des Artikels als String
-        FORMAT_PRICE_WIDTH = 7      # Breite des Preises
+        FORMAT_TEXT_WIDTH = 50  # Breite des Artikels als String
+        FORMAT_PRICE_WIDTH = 7  # Breite des Preises
         FORMAT_PRICE_PRECISION = 2  # davon Anzahl Nachkommastellen
 
         # Gesamtpreis

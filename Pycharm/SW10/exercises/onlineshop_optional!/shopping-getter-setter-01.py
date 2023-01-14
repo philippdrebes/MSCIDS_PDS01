@@ -30,7 +30,6 @@ class Article:
 # Die Klasse erbt von der Klasse Artikel.
 # ############################################################
 class Book(Article):
-
     # Der Mehrwertsteuersatz für Bücher (7 %) wird durch die
     # statische Konstante VAT repräsentiert.
     vat = 0.07
@@ -70,7 +69,6 @@ class Book(Article):
 # Article ableitet
 # ############################################################
 class DVD(Article):
-
     # Statische Konstante für Mehrwertsteuersatz für DVDs (19 %)
     vat = 0.19
 
@@ -78,23 +76,23 @@ class DVD(Article):
     # Objekts der Klasse DVD werden die angegebenen Werte verlangt.
     def __init__(self, article_number, price, name, duration, country_code):
         # Aufruf des Basisklassenkonstruktors
-        # ___***___
+        super().__init__(article_number, price)
 
         # Zusätzliche Daten werden in den internen Variablen abgelegt.
-        # ___***___
-        pass
+        self.__name = name
+        self.__duration = duration
+        self.__country_code = country_code
 
     # Öffentliche Methode zur Berechnung des Bruttopreises
     def get_price(self):
         # Rufe für Nettopreis die Methode in der Superklasse auf
         # und addiere die für Bücher geltende Mehrwertsteuer.
-        # ___***___
-        return 0  # ___***___
+        return super().get_price() * (1 + DVD.vat)
 
     # Öffentliche Methode, die einen DVD-repräsentativen String
     # zurückliefert
     def __str__(self):
-        return "DVD - " + ""  # ___***___
+        return f"DVD - {self.__name} {self.__duration} ({str(self.__country_code)})"
 
 
 # ############################################################
@@ -120,9 +118,9 @@ class ShoppingCart:
     # Öffentliche Methode, die eine Rechnung auf der
     # Konsole druckt
     def show_bill(self):
-                                    # Ausrichten der Tabelle
-        FORMAT_TEXT_WIDTH = 50      # Breite des Artikels als String
-        FORMAT_PRICE_WIDTH = 7      # Breite des Preises
+        # Ausrichten der Tabelle
+        FORMAT_TEXT_WIDTH = 50  # Breite des Artikels als String
+        FORMAT_PRICE_WIDTH = 7  # Breite des Preises
         FORMAT_PRICE_PRECISION = 2  # davon Anzahl Nachkommastellen
 
         # Gesamtpreis
